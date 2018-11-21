@@ -7,7 +7,6 @@
 </head>
 <body>
 
-<h1>Helo</h1>
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -59,6 +58,37 @@
 
 <script>
 
+
+
+function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+    // stop function from running if alternate key  selected
+    if(!audio) return;
+
+    // rewind audio to start each time key is pressed
+    audio.currentTime = 0;
+    audio.play();
+
+    // add playing class to key selected
+    key.classList.add('playing');
+}
+
+  function removeTransition(e) {
+    
+    if (e.propertyName !== 'transform') return // skip if it's not a transform
+      this.classList.remove('playing'); // remove class
+
+      console.log(e.propertyName);
+  }
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+  // listen for keydown event
+  // get the element you're listening for and add an event listener for the 'keydown' event
+  window.addEventListener('keydown', playSound);
 </script>
 
 
