@@ -12,7 +12,7 @@ element.addEventListener(event, function, useCapture);
 * You can easily remove an event listener by using the removeEventListener() method.
 
 Parameters
-* event: Required. A String that specifies the name of the event. Note: Do not use the "on" prefix. For example, use "click" instead of "onclick".
+* event: 	Required. A String that specifies the name of the event. Note: Do not use the "on" prefix. For example, use "click" instead of "onclick".
 * function: Required. Specifies the function to run when the event occurs. When the event occurs, an event object is passed to the function as the first parameter. The type of the event object depends on the specified event. For example, the "click" event belongs to the MouseEvent object.
 * useCapture: Optional. A Boolean value that specifies whether the event should be executed in the capturing (true - outside to in) or in the bubbling (false - inside to out) phase. 
 
