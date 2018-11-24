@@ -2,11 +2,28 @@
 
 window.addEventListener
 --------------------------
-* 
+element.addEventListener(event, function[, options]);
+element.addEventListener(event, function, useCapture);
+* The addEventListener() method attaches an event handler to the specified element.
+* It won't overwrite existing event handlers.
+* You can add many event handlers to one element, including event handlers of the same type (e.g. two "click" events)
+* You can add event listeners to any DOM object not only HTML elements. i.e the window object.
+* The addEventListener() method makes it easier to control how the event reacts to bubbling.
+* You can easily remove an event listener by using the removeEventListener() method.
+
+Parameters
+** event: Required. A String that specifies the name of the event. Note: Do not use the "on" prefix. For example, use "click" instead of "onclick".
+** function: Required. Specifies the function to run when the event occurs. When the event occurs, an event object is passed to the function as the first parameter. The type of the event object depends on the specified event. For example, the "click" event belongs to the MouseEvent object.
+** useCapture: Optional. A Boolean value that specifies whether the event should be executed in the capturing (true - outside to in) or in the bubbling (false - inside to out) phase. 
+
 
 document.querySelector
 --------------------------
-* 
+document.querySelector(".example");
+* The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. 
+* If no matches are found, null is returned.
+* To return all the matches, use the querySelectorAll() method instead.
+
 
 classList
 --------------------------
