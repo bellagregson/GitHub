@@ -1,0 +1,36 @@
+[
+	{
+		"city": "Mississauga",
+		"population": "1,400,000",
+		"state": "Ontario"
+	},
+	{
+		"city": "Toronto",
+		"population": "2,540,300",
+		"state": "Ontario"
+	},	{
+		"city": "Kamloops",
+		"population": "1,280,653",
+		"state": "British Columbia"
+	},	{
+		"city": "Montreal",
+		"population": "796,093",
+		"state": "Quebec"
+	},	{
+		"city": "Quebec City",
+		"population": "24,632",
+		"state": "Quebec"
+	},	{
+		"city": "Calgary",
+		"population": "1,030,870",
+		"state": "Alberta"
+	},	{
+		"city": "Oakville",
+		"population": "291,061",
+		"state": "Ontario"
+	},	{
+		"city": "Victoria",
+		"population": "356,970",
+		"state": "British Columbia"
+	}
+]
