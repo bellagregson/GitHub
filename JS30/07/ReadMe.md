@@ -32,6 +32,9 @@ Array.prototype.find()
 * The find() method executes the function once for each element present in the array:
 * If it finds an array element where the function returns a true value, find() returns the value of that array element (and does not check the remaining values)
 * Otherwise it returns undefined
+* _currentValue_ Required. The value of the current element
+* _index_ Optional. The array index of the current element
+* _arr_	Optional. The array object the current element belongs to
 * find() does not execute the function for empty arrays.
 * find() does not change the original array.
 

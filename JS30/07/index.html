@@ -14,8 +14,17 @@
   <p>Array.prototype.every() // is everyone 19 or older?</p>
   <div class="display answer2"></div>
 
+  <h2>Find Checks</h2>
+  <p>Array.prototype.find() // find the comment with the ID of 823423</p>
+  <div class="display answer3"></div>
+
+  <h2>FindIndex Checks</h2>
+  <p>Array.prototype.findIndex() // Find the comment with this ID 2039842</p>
+  <div class="display answer4"></div>
 
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+
+
 
   <style>
   body { font-family: Arial; }
@@ -59,11 +68,21 @@
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+    const findCheck = comments.find(comment => comment.id === 823423);
+    document.querySelector('.answer3').innerHTML = findCheck.text;
+    console.log(findCheck);
 
     // Array.prototype.findIndex()
-    // Find the comment with this ID
+    // Find the comment with this ID 823423
     // delete the comment with the ID of 823423
-
+    const findIndex = comments.findIndex(comment => comment.id === 2039842);
+    comments.splice(findIndex, 1);
+    var fullList = "";
+    comments.forEach(function(item) {
+      fullList = fullList + item.text + ", ";
+    })
+    document.querySelector('.answer4').innerHTML = fullList;
+    console.log(findIndex);
   </script>
 </body>
 </html>
