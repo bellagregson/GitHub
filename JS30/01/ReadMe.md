@@ -1,4 +1,4 @@
-#JavaScript Drum Kit
+# JavaScript Drum Kit
 
 window.addEventListener
 --------------------------

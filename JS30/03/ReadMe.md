@@ -1,4 +1,4 @@
-#CSS Variables
+# CSS Variables
 
 How do CSS Variables work?
 * Declare them on a variable
