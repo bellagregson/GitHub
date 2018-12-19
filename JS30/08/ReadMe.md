@@ -70,5 +70,37 @@ window.innerWidth, window.innerHeight
 
 * _Return Value_ : A Number, representing the width and/or the inner height of the browser window's content area, in pixels
 
+beginPath()
+-----------------------
+* The beginPath() method begins a path, or resets the current path.
+* Tip: Use moveTo(), lineTo(), quadricCurveTo(), bezierCurveTo(), arcTo(), and arc(), to create paths.
+* Tip: Use the stroke() method to actually draw the path on the canvas.
 
 
+moveTo()
+-----------------------
+```context.moveTo(x,y);```
+* The moveTo() method moves the path to the specified point in the canvas, without creating a line.
+* _x_ : The x-coordinate of where to move the path to	
+* _y_ :	The y-coordinate of where to move the path to
+
+
+lineTo()
+-----------------------
+```context.lineTo(x,y);```
+* The lineTo() method adds a new point and creates a line TO that point FROM the last specified point in the canvas (this method does not draw the line).
+* _x_ : The x-coordinate of where to create the line to	
+* _y_ :	The y-coordinate of where to create the line to
+
+
+stroke()
+-----------------------
+```context.stroke();```
+* The stroke() method actually draws the path you have defined with all those moveTo() and lineTo() methods. 
+* The default color is black.
+
+offsetX, offsetY
+-----------------------
+````event.offsetX```
+* The offsetX property returns the x-coordinate of the mouse pointer, relative to the target element.
+* The offsetY property returns the y-coordinate of the mouse pointer, relative to the target element.
