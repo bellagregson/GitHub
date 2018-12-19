@@ -1,4 +1,4 @@
-Flexbox
+#Flexbox Panel Gallery
 
 nodeList
 

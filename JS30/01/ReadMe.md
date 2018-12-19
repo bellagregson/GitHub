@@ -1,4 +1,4 @@
-// This project uses the following
+#JavaScript Drum Kit
 
 window.addEventListener
 --------------------------

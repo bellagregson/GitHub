@@ -1,4 +1,4 @@
-// This project uses the following
+#Array Cardio Day 2
 
 Array.prototype.some() 
 ---------------------------
