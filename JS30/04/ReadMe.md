@@ -67,10 +67,10 @@ Array.prototype.reduce()
 * Note: reduce() does not execute the function for array elements without values.
 
 * _function()_ Required. A function to be run for each element in the array. Function arguments:
-* * _total_	Required. The initialValue, or the previously returned value of the function
-* * _currentValue_	Required. The value of the current element
-* * _currentIndex_	Optional. The array index of the current element
-* * _arr_ Optional. The array object the current element belongs to
+	* _total_	Required. The initialValue, or the previously returned value of the function
+	* _currentValue_	Required. The value of the current element
+	* _currentIndex_	Optional. The array index of the current element
+	* _arr_ Optional. The array object the current element belongs to
 * _initialValue_ Optional. A value to be passed to the function as the initial value
 
 ``const array1 = [1, 2, 3, 4];
