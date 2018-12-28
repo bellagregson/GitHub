@@ -2,15 +2,29 @@
 
 play/pause
 -----------------------------------
+``audio|video.play()``
 ``audio|video.pause()``
+
 * The pause() method halts (pauses) the currently playing audio or video.
 * When a click event is detected on the play/pause button, the handler first of all checks if the video is currently paused or has ended (via the Media API's paused and ended attributes); 
 * if so, it uses the play() method to playback the video. 
 * Otherwise the video must be playing, so it is paused using the pause() method.
+* No return value
 ``playpause.addEventListener('click', function(e) {
    if (video.paused || video.ended) video.play();
    else video.pause();
 });``
+
+
+paused
+-----------------------------------
+``audio|video.paused``
+* The paused property returns whether the audio/video is paused.
+* Returns true if the audio/video is paused. Otherwise it returns false
+* This property is read-only.
+
+``var vid = document.getElementById("myVideo");
+alert(vid.paused);``
 
 
 volume
@@ -131,6 +145,25 @@ seeking
 
 ``var vid = document.getElementById("myVideo");
 document.getElementById("mySpan").innerHTML = "Seeking: " + vid.seeking;``
+
+input
+-----------------------------------
+``<input type="range">``
+* Default range is 0 to 100. However, you can set restrictions on what numbers are accepted with the attributes below.
+	* max - specifies the maximum value allowed
+	* min - specifies the minimum value allowed
+	* step - specifies the legal number intervals
+	* value - Specifies the default value
+
+Methods
+* _stepDown()_	Decrements the value of the slider control by a specified number
+* _stepUp()_	Increments the value of the slider control by a specified number
+
+Property (some, not all of them)
+* _defaultValue_	Sets or returns the default value of a slider control
+* _name_	Sets or returns the value of the name attribute of a slider control
+* _type_	Returns which type of form element the slider control is
+* _value_	Sets or returns the value of the value attribute of a slider control
 
 
 error 
