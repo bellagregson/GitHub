@@ -1,5 +1,5 @@
 # Key Sequence Detection
-
+ 
 arrays
 ---------------------------------------
 ``var array_name = [item1, item2, ...];``
