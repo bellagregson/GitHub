@@ -13,11 +13,11 @@ The object x is not a copy of person. It is person. Both x and person are the sa
 Any changes to x will also change person, because x and person are the same object.
 
 Example
-``
+```
 var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
 var x = person;
 x.age = 10; // This will change both x.age and person.age
-``
+```
 
  array.slice() method
 ---------------------------------------------
@@ -52,11 +52,11 @@ The concat() method is used to join two or more arrays.
 
 This method does not change the existing arrays, but returns a new array, containing the values of the joined arrays.
 
-``
+```
 var hege = ["Cecilie", "Lone"];
 var stale = ["Emil", "Tobias", "Linus"];
 var children = hege.concat(stale);
-``
+```
 
 
 ES6 spread syntax
@@ -67,29 +67,29 @@ Spread syntax allows an iterable such as an array expression or string to be exp
 *Combine Arrays*
 There have always been a variety of ways to combine arrays, but the spread operator gives use a new method for combining arrays:
 
-``
+```
 arr1.push(...arr2) // Adds arr2 items to end of array
 arr1.unshift(...arr2) //Adds arr2 items to beginning of array
-``
+```
 
 If you'd like to combine two arrays and place elements at any point within the array, you can do as follows:
 
-``
+```
 var arr1 = ['two', 'three'];
 var arr2 = ['one', ...arr1, 'four', 'five'];
 // ["one", "two", "three", "four", "five"]
-``
+```
 
 Shorter syntax than other methods while adding positional control!
 
 *Copying Arrays*
 Getting a copy of an array is a frequent tasks, something  we've used Array.prototype.slice to do in the past, but we can now use the spread operator to get a copy of an array:
 
-``
+```
 var arr = [1,2,3];
 var arr2 = [...arr]; // like arr.slice()
 arr2.push(4)
-``
+```
 
 Remember: objects within the array are still by reference, so not everything gets "copied", per se.
 
@@ -97,25 +97,19 @@ Remember: objects within the array are still by reference, so not everything get
 
 Much like copying arrays, we've used Array.Prototype.slice to convert NodeList and arguments objects and to true arrays, but now we can use the spread operator to complete that task:
 
-``
-[...document.querySelectorAll('div')]
-``
+``[...document.querySelectorAll('div')]``
 
 
 
 array.from()
 ---------------------------------------------
 
-``
-Array.from(object, mapFunction, thisValue)
-``
+``Array.from(object, mapFunction, thisValue)``
 
 The Array.from() method returns an Array object from any object with a length property or an iterable object.
 
 Create an Array from a String:
-``
-var myArr = Array.from("ABCDEFG");
-``
+``var myArr = Array.from("ABCDEFG");``
 
 Parameter Variables
 * _object_	Required. The object to convert to an array
@@ -125,9 +119,7 @@ Parameter Variables
 
 object.assign()
 ---------------------------------------------
-``
-Object.assign(target, ...sources)
-``
+``Object.assign(target, ...sources)``
 
 The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object. 
 
@@ -153,13 +145,13 @@ In case of an error, for example if a property is non-writable, a TypeError will
 
 Note that Object.assign() does not throw on null or undefined source values.
 
-``
+```
 var o1 = { a: 1, b: 1, c: 1 };
 var o2 = { b: 2, c: 2 };
 var o3 = { c: 3 };
 var obj = Object.assign({}, o1, o2, o3);
 console.log(obj); // { a: 1, b: 2, c: 3 }
-``
+```
 
 
 
@@ -187,9 +179,7 @@ reviver function
 
 Parse a string (written in JSON format) and return a JavaScript object:
 
-``
-var obj = JSON.parse('{"firstName":"John", "lastName":"Doe"}');
-``
+``var obj = JSON.parse('{"firstName":"John", "lastName":"Doe"}');``
 
 
 JSON.parse()
