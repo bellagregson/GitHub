@@ -60,6 +60,7 @@ localStorage's persistence makes it useful for a variety of things, including pa
 https://mdn.github.io/dom-examples/web-storage/
 
 
+
 event delegation
 ------------------------------------------
 
@@ -164,6 +165,7 @@ https://davidwalsh.name/event-delegate
 https://medium.com/@bretdoucette/part-4-what-is-event-delegation-in-javascript-f5c8c0de2983
 
 
+
 event bubbling
 ------------------------------------------
 
@@ -201,3 +203,14 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
   event.preventDefault()
 });
 ```
+
+
+
+form.reset()
+------------------------------------------
+``formObject.reset()``
+
+* The reset() method resets the values of all elements in a form (same as clicking the Reset button).
+* Tip: Use the submit() method to submit the form.
+
+``document.getElementById("myForm").reset();``
