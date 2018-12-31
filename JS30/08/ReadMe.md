@@ -103,6 +103,6 @@ stroke()
 
 offsetX, offsetY
 -----------------------
-````event.offsetX```
+```event.offsetX```
 * The offsetX property returns the x-coordinate of the mouse pointer, relative to the target element.
 * The offsetY property returns the y-coordinate of the mouse pointer, relative to the target element.
