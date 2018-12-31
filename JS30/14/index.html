@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+</head>
+<body>
+
+  <script>
+    // start with strings, numbers and booleans
+    let age = 100;
+    let age2 = age;
+    console.log('age: ', age);
+    console.log('age2: ', age2);
+
+    age = 202;
+    console.log('age: ', age);
+    console.log('age2: ', age2);    
+
+    console.log('----------------');
+
+    let food = "apple";
+    let food2 = food;
+    console.log('food: ', food);
+    console.log('food2: ', food2); 
+
+    food = "bacon";
+    console.log('food: ', food);
+    console.log('food2: ', food2); 
+
+    console.log('----------------');
+    console.log('----------------');
+
+
+    // Let's say we have an array
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+
+    // and we want to make a copy of it.
+    const team = players;
+
+    console.log('players: ', players); 
+    console.log('team: ', team); 
+    console.log('----------------');
+
+    // You might think we can just do something like this:
+    team[3] = "Lux"
+
+    // however what happens when we update that array
+    console.log('players: ', players); 
+    console.log('team: ', team);     
+    console.log('----------------');
+
+    // now here is the problem!
+
+    // oh no - we have edited the original array too!
+
+    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+
+    // So, how do we fix this? We take a copy instead!
+    // one way
+    team2 = players.slice();
+    console.log('players: ', players); 
+    console.log('team2: ', team2);     
+    console.log('----------------');
+    
+    team2[3] = "Marie";
+    console.log('players: ', players); 
+    console.log('team2: ', team2);     
+    console.log('----------------');
+
+    // or create a new array and concat the old one in
+    team3 = [].concat(players);
+    team3[3] = "Frida";
+
+    console.log('players: ', players); 
+    console.log('team3: ', team3);     
+    console.log('----------------');
+
+    // or use the new ES6 Spread
+    team4 = [...players];
+    team4[3] = "Helen";
+
+    console.log('players: ', players); 
+    console.log('team4: ', team4);     
+    console.log('----------------');
+
+    team5 = Array.from(players);
+    team5[3] = "Waldo"
+    console.log('players: ', players);
+    console.log('team5', team5);
+    console.log('----------------');
+    console.log('----------------');
+
+    // now when we update it, the original one isn't changed
+
+    // The same thing goes for objects, let's say we have a person object
+
+    // with Objects
+    const person = {
+      name: 'Wes Bos',
+      age: 80
+    };
+
+    // and think we make a copy:
+    const captain = person;
+    captain.number = 1039309309;
+    captain.age = 100;
+
+    console.log('person', person);
+    console.log('captain', captain);
+    console.log('----------------');
+
+
+    // how do we take a copy instead?
+    const captain2 = Object.assign({}, person, {height: 209, age: 45});
+
+    console.log('person', person);
+    console.log('captain2', captain2);
+    console.log('----------------');
+
+    // We will hopefully soon see the object ...spread
+    captain3 = {...person}
+    captain3.age = 67;
+
+    console.log('person', person);
+    console.log('captain3', captain3);
+    console.log('----------------');    
+
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    const wes = {
+      name: 'Wes Bos',
+      age: 80,
+      social: {
+        twitter: '@wesbos',
+        facebook: 'wesbos.developer'
+      }
+    };
+
+    console.clear();
+    console.log('wes: ', wes);
+
+    const dev = Object.assign({}, wes);
+
+    dev.social.twitter = "@developer"
+    console.log('wes: ', wes);
+    console.log('dev: ', dev);
+    console.log('----------------'); 
+
+    // hack copy method - convert to string (stringify), copy and convert back to object (parse)
+    // not recommended
+    const dev2 = JSON.parse(JSON.stringify(wes));
+    dev2.social.twitter = "@coder"
+    console.log('wes: ', wes);
+    console.log('dev2: ', dev2);
+
+
+  </script>
+
+</body>
+</html>
