@@ -174,3 +174,30 @@ This is called event bubbling or event propagation.
 Because of its bubbling nature, event propagation basically means that anytime you click one of our inputs on the DOM, you are effectively clicking the entire document body.
 
 Because of event bubbling you can place an event listener on a single parent HTML element that lives above a HTML child, and that event listener will get executed whenever an event occurs on any of its child nodes — even if these node children are added to the page after the initial load!
+
+
+
+e.preventDefault()
+------------------------------------------
+
+``event.preventDefault()``
+
+The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+
+For example, this can be useful when:
+
+* Clicking on a "Submit" button, prevent it from submitting a form
+* Clicking on a link, prevent the link from following the URL
+
+Note: Not all events are cancelable. Use the *cancelable* property to find out if an event is cancelable.
+
+Note: The preventDefault() method does not prevent further propagation of an event through the DOM. Use the stopPropagation() method to handle this.
+
+*Example*
+
+Prevent a link from opening the URL:
+```
+document.getElementById("myAnchor").addEventListener("click", function(event){
+  event.preventDefault()
+});
+```
