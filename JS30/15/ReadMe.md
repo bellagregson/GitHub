@@ -68,13 +68,13 @@ That event listener analyzes bubbled events to find a match on child elements.
 
 *How does it work?*
 Let's say that we have a parent UL element with several child elements:
-``
-<ul id="parent-list">
+
+``<ul id="parent-list">
 	<li id="post-1">Item 1</li>
 	<li id="post-2">Item 2</li>
 	<li id="post-3">Item 3</li>
-</ul>
-``
+</ul>``
+
 * Let's also say that something needs to happen when each child element is clicked.  
 * You could add a separate event listener to each individual LI element, but what if LI elements are frequently added and removed from the list?  
 * Adding and removing event listeners would be a nightmare, especially if addition and removal code is in different places within your app.  
