@@ -16,32 +16,32 @@ The _sessionStorage_ property  stores data for one session (data is lost when th
 
 *Methods*
 
-SAVING data to localStorage:
+* SAVING data to localStorage:
 ``localStorage.setItem("key", "value");``
 
-READING data from localStorage:
+* READING data from localStorage:
 ``var lastname = localStorage.getItem("key");``
 
-REMOVING data from localStorage:
+* REMOVING data from localStorage:
 ``localStorage.removeItem("key");``
 
-CLEAR ALL data from localStorage:
+* CLEAR ALL data from localStorage:
 ``localStorage.clear();``
 
 
 *Examples*
 
 Create a localStorage name/value pair with name="lastname" and value="Smith", then retrieve the value of "lastname" and insert it into the element with id="result":
-``
+```
 // Store
 localStorage.setItem("lastname", "Smith");
 // Retrieve
 document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-``
+```
 
 The following example counts the number of times a user has clicked a button:
 
-``
+```
 if (localStorage.clickcount) {
   localStorage.clickcount = Number(localStorage.clickcount) + 1;
 } else {
@@ -49,7 +49,7 @@ if (localStorage.clickcount) {
 }
 document.getElementById("result").innerHTML = "You have clicked the button " +
 localStorage.clickcount + " time(s).";
-``
+```
 
 
 *Note:*
@@ -71,11 +71,13 @@ That event listener analyzes bubbled events to find a match on child elements.
 *How does it work?*
 Let's say that we have a parent UL element with several child elements:
 
-``<ul id="parent-list">
+```
+<ul id="parent-list">
 	<li id="post-1">Item 1</li>
 	<li id="post-2">Item 2</li>
 	<li id="post-3">Item 3</li>
-</ul>``
+</ul>
+```
 
 * Let's also say that something needs to happen when each child element is clicked.  
 * You could add a separate event listener to each individual LI element, but what if LI elements are frequently added and removed from the list?  
