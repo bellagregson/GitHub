@@ -14,6 +14,8 @@ The localStorage property is read-only.
 
 The _sessionStorage_ property  stores data for one session (data is lost when the browser tab is closed).
 
+*Methods*
+
 SAVING data to localStorage:
 ``localStorage.setItem("key", "value");``
 
@@ -113,6 +115,7 @@ document.getElementById("parent-list").addEventListener("click", function(e) {
 	}
 });
 ``
+
 * Start by adding a click event listener to the parent element.  
 * When the event listener is triggered, check the event element to ensure it's the type of element to react to.  
 * If it is an LI element, boom:  we have what we need!  
@@ -122,8 +125,7 @@ document.getElementById("parent-list").addEventListener("click", function(e) {
 
 The whole idea behind event delegation is that instead of listening for a change on the inputs directly, *we should look for an HTML element that is going to be on the page when the page initially loads*.
 
-``
-<ul class=”characters”>
+``<ul class=”characters”>
 </ul>
 <script>
   function toggleDone (event) {
@@ -131,15 +133,16 @@ The whole idea behind event delegation is that instead of listening for a change
   } 
   const characterList = document.querySelector('.characters')
   characterList.addEventListener('click', toggleDone)
-</script>
-``
+</script>``
 
 It is best to think of event delegation as responsible parents and negligent children. The parents are basically gods, and the children have to listen to whatever the parents say. The beauty is if we add more children (more inputs), the parents stay the same — they were there from the beginning or, in other words, on page load.
 
 ``Console.log(event.currentTarget)``
+
 The event.currentTarget identifies the current target for the event, as the event traverses the DOM. It always refers to the element to which the event listener has been attached. In our case the event listener was attached to the unordered list, characters, so that is what we see in our console.
 
 ``Console.log(event.target)``
+
 The event.target is a reference to the object that dispatched the event. Or in other words, it identifies the HTML element on which the event occurred.
 
 Because we now know that the EVENT.TARGET identifies the HTML elements on which the event occurred, and we also know what element we want to listen for (the input element), solving this in JavaScript is relatively easy.
@@ -154,6 +157,7 @@ function toggleDone (event) {
 ``
 
 https://davidwalsh.name/event-delegate
+
 https://medium.com/@bretdoucette/part-4-what-is-event-delegation-in-javascript-f5c8c0de2983
 
 
