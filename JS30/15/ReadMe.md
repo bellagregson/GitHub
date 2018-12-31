@@ -26,7 +26,7 @@ The _sessionStorage_ property  stores data for one session (data is lost when th
 ``localStorage.removeItem("key");``
 
 * CLEAR ALL data from localStorage:
-``localStorage.clear();``
+```localStorage.clear();```
 
 
 *Examples*
@@ -50,7 +50,6 @@ if (localStorage.clickcount) {
 document.getElementById("result").innerHTML = "You have clicked the button " +
 localStorage.clickcount + " time(s).";
 ```
-
 
 *Note:*
 
@@ -88,7 +87,7 @@ Let's say that we have a parent UL element with several child elements:
 
 Here's a very basic JavaScript snippet which illustrates event delegation:
 
-``
+```
 // Get the element, add a click listener...
 document.getElementById("parent-list").addEventListener("click", function(e) {
 	// e.target is the clicked element!
@@ -98,7 +97,7 @@ document.getElementById("parent-list").addEventListener("click", function(e) {
 		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
 	}
 });
-``
+```
 
 *Why Use Event Delegation?*
 * Without event delegation you would have to rebind the click event listener to each new input loaded to the page. Coding this is complicated and burdensome. 
@@ -106,7 +105,7 @@ document.getElementById("parent-list").addEventListener("click", function(e) {
 * Having a larger memory footprint decreases performance… and poor performance is a bad thing. 
 * Second, there can be memory leak issues associated with binding and unbinding event listeners and removing elements from the dom. 
 
-``
+```
 // Get the element, add a click listener...
 document.getElementById("parent-list").addEventListener("click", function(e) {
 	// e.target is the clicked element!
@@ -116,7 +115,7 @@ document.getElementById("parent-list").addEventListener("click", function(e) {
 		console.log("List item ", e.target.id.replace("post-", ""), " was clicked!");
 	}
 });
-``
+```
 
 * Start by adding a click event listener to the parent element.  
 * When the event listener is triggered, check the event element to ensure it's the type of element to react to.  
@@ -127,7 +126,8 @@ document.getElementById("parent-list").addEventListener("click", function(e) {
 
 The whole idea behind event delegation is that instead of listening for a change on the inputs directly, *we should look for an HTML element that is going to be on the page when the page initially loads*.
 
-``<ul class=”characters”>
+```
+<ul class=”characters”>
 </ul>
 <script>
   function toggleDone (event) {
@@ -135,7 +135,8 @@ The whole idea behind event delegation is that instead of listening for a change
   } 
   const characterList = document.querySelector('.characters')
   characterList.addEventListener('click', toggleDone)
-</script>``
+</script>
+```
 
 It is best to think of event delegation as responsible parents and negligent children. The parents are basically gods, and the children have to listen to whatever the parents say. The beauty is if we add more children (more inputs), the parents stay the same — they were there from the beginning or, in other words, on page load.
 
@@ -149,14 +150,14 @@ The event.target is a reference to the object that dispatched the event. Or in o
 
 Because we now know that the EVENT.TARGET identifies the HTML elements on which the event occurred, and we also know what element we want to listen for (the input element), solving this in JavaScript is relatively easy.
 
-``
+```
 //Event Delegation
 function toggleDone (event) {
   if (!event.target.matches(‘input’)) return
   console.log(event.target)
   //We now have the correct input - we can manipulate the node here
 }
-``
+```
 
 https://davidwalsh.name/event-delegate
 
