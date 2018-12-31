@@ -10,10 +10,12 @@ play/pause
 * if so, it uses the play() method to playback the video. 
 * Otherwise the video must be playing, so it is paused using the pause() method.
 * No return value
-``playpause.addEventListener('click', function(e) {
+```
+playpause.addEventListener('click', function(e) {
    if (video.paused || video.ended) video.play();
    else video.pause();
-});``
+});
+```
 
 
 paused
@@ -23,8 +25,10 @@ paused
 * Returns true if the audio/video is paused. Otherwise it returns false
 * This property is read-only.
 
-``var vid = document.getElementById("myVideo");
-alert(vid.paused);``
+```
+var vid = document.getElementById("myVideo");
+alert(vid.paused);
+```
 
 
 volume
@@ -43,8 +47,10 @@ Property Values
 	* 0.5 is half volume (50%)
 	* 0.0 is silent (same as mute)
 * Set video volume to 20%:
-``var vid = document.getElementById("myVideo");
-vid.volume = 0.2;``
+```
+var vid = document.getElementById("myVideo");
+vid.volume = 0.2;
+```
 
 
 currentTime 
@@ -61,8 +67,10 @@ Set the currentTime property:
 Property Values
 * _seconds_	Indicates the position for the playback of the audio/video, in seconds
 
-``var vid = document.getElementById("myVideo");
-vid.currentTime = 5;``
+```
+var vid = document.getElementById("myVideo");
+vid.currentTime = 5;
+```
 
 
 defaultPlaybackRate
@@ -86,8 +94,10 @@ Property Values
 		* -1.0 is backwards, normal speed
 		* -0.5 is backwards, half speed
 
-``var vid = document.getElementById("myVideo");
-vid.defaultPlaybackRate = 0.5;``
+```
+var vid = document.getElementById("myVideo");
+vid.defaultPlaybackRate = 0.5;
+```
 
 
 playbackRate 
@@ -108,8 +118,10 @@ Property Values
 		* 2.0 is double speed (faster)
 		* -1.0 is backwards, normal speed
 		* -0.5 is backwards, half speed
-``var vid = document.getElementById("myVideo");
-vid.playbackRate = 0.5;``
+```
+var vid = document.getElementById("myVideo");
+vid.playbackRate = 0.5;
+```
 
 
 seekable 
@@ -130,8 +142,10 @@ Return Value
 		* end(index) - get the end position of a seekable range
 		* Note: The first seekable range is index 0
 
-``var vid = document.getElementById("myVideo");
-alert("Start: " + vid.seekable.start(0) + " End: " + vid.seekable.end(0));``
+```
+var vid = document.getElementById("myVideo");
+alert("Start: " + vid.seekable.start(0) + " End: " + vid.seekable.end(0));
+```
 
 
 seeking
@@ -143,8 +157,10 @@ seeking
 * This property is read-only.
 * Returns true if the user is currently seeking, otherwise it returns false
 
-``var vid = document.getElementById("myVideo");
-document.getElementById("mySpan").innerHTML = "Seeking: " + vid.seeking;``
+```
+var vid = document.getElementById("myVideo");
+document.getElementById("mySpan").innerHTML = "Seeking: " + vid.seeking;
+```
 
 input
 -----------------------------------
@@ -180,8 +196,9 @@ Return Value
 		* 3 = MEDIA_ERR_DECODE - error occurred when decoding
 		* 4 = MEDIA_ERR_SRC_NOT_SUPPORTED - audio/video not supported
 
-``var vid = document.getElementById("myVideo");
-alert(vid.error.code);``
-
+```
+var vid = document.getElementById("myVideo");
+alert(vid.error.code);
+```
 
 https://www.w3schools.com/tags/ref_av_dom.asp

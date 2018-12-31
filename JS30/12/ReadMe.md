@@ -7,17 +7,19 @@ arrays
 * An array can hold many values under a single name
 * You access an array element by referring to the index number.
 * You can have objects in an Array. You can have functions in an Array. You can have arrays in an Array
-``myArray[0] = Date.now;
+```
+myArray[0] = Date.now;
 myArray[1] = myFunction;
-myArray[2] = myCars;``
+myArray[2] = myCars;
+```
 
 Properties
 * The length property returns the number of elements
 * The sort() method sorts arrays
-``
+```
 var x = cars.length; 
 var y = cars.sort(); 
-``
+```
 
 Methods
 * The safest way to loop through an array, is using a "for" loop
@@ -51,11 +53,11 @@ Parameter Values
 
 At position 2, add the new items, and remove 1 item:
 
-``
+```
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.splice(2, 1, "Lemon", "Kiwi");
 // output: Banana,Orange,Lemon,Kiwi,Mango
-``
+```
 
 
 array.join
@@ -65,10 +67,10 @@ array.join
 * The elements will be separated by a specified separator. 
 * The default separator is a comma (,).
 
-``
+```
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 var energy = fruits.join();
-``
+```
 
 
 array.includes
@@ -82,8 +84,8 @@ Parameter Values
 * _element_	Required. The element to search for
 * _start_	Optional. Default 0. At which position in the array to start the search
 
-``
+```
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 var n = fruits.includes("Mango");
 // output: true
-``
+```

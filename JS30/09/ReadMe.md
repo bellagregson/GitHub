@@ -61,14 +61,16 @@ console.dir()
 
 console.group, console.groupEnd(), console.groupCollapsed
 -------------------------------------------------
-``console.group("Authentication phase");
+```
+console.group("Authentication phase");
 // or console.groupCollapsed()
 console.log("Authenticating user '%s'", user);
 // authentication code here...
 if (!authenticated) {
     console.log("User '%s' not authenticated.", user)
 }
-console.groupEnd();``
+console.groupEnd();
+```
 
 * _console.group('name')_ command takes a single string parameter to set the name of the group.
 * After calling it in your JavaScript, the console will begin to group all subsequent output together.
@@ -88,13 +90,15 @@ console.count()
 
 console.time(), console.timeEnd()
 ------------------------------------------------
-``console.time('total');
+```
+console.time('total');
 var arr = new Array(10000);
 for (var i = 0; i < arr.length; i++) {
   arr[i] = new Object();
 }
 console.timeEnd('total');
-// total: 3.696044921875ms``
+// total: 3.696044921875ms
+```
 
 * Starts a new timer. 
 * Call console.timeEnd() to stop the timer and print the elapsed time to the Console.
@@ -104,11 +108,13 @@ console.timeEnd('total');
 
 console.table(array)
 -------------------------------------------------
-``let data = [
+```
+let data = [
   { name: "Yusuf", age: 26 },
   { age: 34, name: "Chen" }
 ];
-console.table(data);``
+console.table(data);
+```
 * Logs an array of objects as a table.
 
 

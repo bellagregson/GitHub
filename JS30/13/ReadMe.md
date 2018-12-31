@@ -32,14 +32,14 @@ Tip: use the CSS overflow style property to create a scrollbar for an element.
 
 Slide in an element when the user has scrolled down 350 pixels from the top of the page (add the slideUp class):
 
-``
+```
 window.onscroll = function() {myFunction()};
 function myFunction() {
   if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
     document.getElementById("myImg").className = "slideUp";
   }
 }
-``
+```
 
 
 offsetTop
@@ -59,11 +59,11 @@ Tip: To return the left position of an element, use the offsetLeft property.
 
 Get the position of a _<div>_ element:
 
-``
+```
 var testDiv = document.getElementById("test");
 var demoDiv = document.getElementById("demo");
 demoDiv.innerHTML = "offsetLeft: " + testDiv.offsetLeft + "<br>offsetTop: " + testDiv.offsetTop;
-``
+```
 
 
 classList property
@@ -104,10 +104,7 @@ toggle(class, true|false)
 * If the class does not exist, it is added to the element, and the return value is true.
 * The optional second parameter is a Boolean value that forces the class to be added or removed, regardless of whether or not it already existed.
 
-``
-document.getElementById("myDIV").classList.add("mystyle");
-``
-
+``document.getElementById("myDIV").classList.add("mystyle");``
 
 
 
@@ -122,7 +119,7 @@ A quick example:
 
 Here's the basic JavaScript debounce function 
 
-``
+```
 // Returns a function, that, as long as it continues to be invoked, will not
 // be triggered. The function will be called after it stops being called for
 // N milliseconds. If `immediate` is passed, trigger the function on the
@@ -141,15 +138,15 @@ function debounce(func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 };
-``
+```
 
 You'll pass the debounce function the function to execute and the fire rate limit in milliseconds.  Here's an example usage:
 
-``
+```
 var myEfficientFn = debounce(function() {
 	// All the taxing stuff you do
 }, 250);
 window.addEventListener('resize', myEfficientFn);
-``
+```
 
 The function above will only fire once every quarter of a second instead of as quickly as it's triggered; an incredible performance boost in some cases.

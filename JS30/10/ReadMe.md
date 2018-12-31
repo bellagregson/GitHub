@@ -7,9 +7,11 @@
 	* Converts the operand to boolean type: true/false.
 	* Returns an inverse value.
 * If a condition is true, then Logical NOT operator will make it false or vice versa
-``n1 = !true               // !t returns false
+```
+n1 = !true               // !t returns false
 n2 = !false              // !f returns true
-n3 = !'Cat'              // !t returns false``
+n3 = !'Cat'              // !t returns false
+```
 
 && Logical AND operator
 -------------------------------------
@@ -29,10 +31,12 @@ Logical OR operator
 * The “OR” operator is represented with two vertical line symbols:
 ``result = a || b;``
 * There are four possible logical combinations:
-``alert( true || true );   // true
+```
+alert( true || true );   // true
 alert( false || true );  // true
 alert( true || false );  // true
-alert( false || false ); // false``
+alert( false || false ); // false
+```
 * As we can see, the result is always true except for the case when both operands are false.
 * If an operand is not boolean, then it’s converted to boolean for the evaluation.
 * For instance, a number 1 is treated as true, a number 0 – as false
@@ -47,14 +51,16 @@ e.shiftKey
 var shiftKeyPressed = instanceOfMouseEvent.shiftKey``
 * The KeyboardEvent.shiftKey read-only property is a Boolean that indicates if the shift key was pressed (true) or not (false) when the event occurred.
 * The MouseEvent.shiftKey read-only property is a Boolean that indicates whether the shift key was pressed or not when a given mouse event occurs.
-``function showChar(e){
+```
+function showChar(e){
   alert(
     "Key Pressed: " + String.fromCharCode(e.charCode) + "\n"
     + "charCode: " + e.charCode + "\n"
     + "SHIFT key pressed: " + e.shiftKey + "\n"
     + "ALT key pressed: " + e.altKey + "\n"
   );
-}``
+}
+```
 
 
 input.checked property
