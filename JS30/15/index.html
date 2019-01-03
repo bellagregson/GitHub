@@ -28,7 +28,71 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = JSON.parse(localStorage.getItem('items')) || [];  // get values from local storage if it exists or set an empty array
+
+  function addItem(e) {
+    e.preventDefault();
+
+    // capture text from input box and create object
+    const text = (this.querySelector('[name=item]')).value;
+    const item = {
+      text,
+      done: false
+    }
+
+    // add new item object to the objects array
+    items.push(item);
+
+    //  call function to write HTML to page
+    populateList(items, itemsList);
+
+    // add items to localStorage (only accepts strings);
+    localStorage.setItem('items', JSON.stringify(items));
+
+    this.reset();
+   //console.table(items);
+  }
+
+  function populateList(plates = [], platesList) {
+    console.table(plates);
+    
+    platesList.innerHTML = plates.map((plate, i) => {
+      return ` 
+      <li>
+          <input type="checkbox" data-index="${i}" id="item${i}" name="item${i}" id="${plate.text}" ${plate.done ? 'checked' : ''}> 
+          <label for="item${i}">${plate.text}</label>
+        </li>`
+    }).join('');
+
+  }
+
+  function toggleDone(e) {
+
+    // event delegation
+    // don't match anything that's not an input field
+    if(!e.target.matches('input')) return;
+
+    const el = e.target;
+    const index = el.dataset.index; // get item #
+    items[index].done = !items[index].done; // set toggle when clicked
+
+    // store new values for 'done' property
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
+
+    console.log(el.dataset.index);
+  }
+
+
+  // listen for submit button
+  addItems.addEventListener('submit', addItem);
+
+  //  call function on page load to write HTML to page if in localStorage
+  populateList(items, itemsList);
+
+  // event delegation
+  // capture when checkbox is selected
+  itemsList.addEventListener('click', toggleDone);
 
 </script>
 

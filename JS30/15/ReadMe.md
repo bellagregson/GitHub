@@ -243,6 +243,8 @@ thisValue
 "this" value.
 * If this parameter is empty, the value "undefined" will be passed as its "this" value
 
+Get the full name for each person in the array:
+
 ```
 var persons = [
   {firstname : "Malcom", lastname: "Reynolds"},
