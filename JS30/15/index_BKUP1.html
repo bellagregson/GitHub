@@ -22,9 +22,9 @@
     <form class="add-items">
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item"><br/><br/>
-      <input type="button" data-checkbox="true" value="Check All">
-      <input type="button" data-checkbox="false" value="Uncheck All">
-      <input type="button" data-checkbox="clear" value="Clear All">
+      <input type="button" data-btn="checked" value="Check All">
+      <input type="button" data-btn="!checked" value="Uncheck All">
+      <input type="button" data-btn="clear" value="Clear All">
     </form>
   </div>
 
@@ -42,28 +42,31 @@
       text,
       done: false
     }
-    
-    items.push(item); // add new item object to the objects array
-    populateList(items, itemsList); //  call function to write HTML to page
-    localStorage.setItem('items', JSON.stringify(items)); // add items to localStorage 
-    
+
+    // add new item object to the objects array
+    items.push(item);
+
+    //  call function to write HTML to page
+    populateList(items, itemsList);
+
+    // add items to localStorage (only accepts strings);
+    localStorage.setItem('items', JSON.stringify(items));
+
     this.reset();
+   //console.table(items);
   }
 
   function populateList(plates = [], platesList) {
+    //console.table(plates);
     
     platesList.innerHTML = plates.map((plate, i) => {
       return ` 
       <li>
-          <input type="checkbox" data-index="${i}" id="item${i}" name="item${i}" ${plate.done ? 'checked' : ''}> 
+          <input type="checkbox" data-index="${i}" id="item${i}" name="item${i}" id="${plate.text}" ${plate.done ? 'checked' : ''}> 
           <label for="item${i}">${plate.text}</label>
-          <a href="#" data-remove="${i}" id="remove${i}">[remove]</a>
         </li>`
     }).join('');
-  }
 
-  function clearList() {
-    platesList.innerHTML ="";
   }
 
   function toggleDone(e) {
@@ -83,8 +86,12 @@
     //console.log(el.dataset.index);
   }
 
-  addItems.addEventListener('submit', addItem);  // listen for submit button
-  populateList(items, itemsList); //  call on page load to add list to page from localStorage
+
+  // listen for submit button
+  addItems.addEventListener('submit', addItem);
+
+  //  call function on page load to write HTML to page if in localStorage
+  populateList(items, itemsList);
 
   // event delegation
   // capture when checkbox is selected

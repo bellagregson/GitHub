@@ -1,0 +1,23 @@
+ function modifyItems(e) {
+    if(!e.target.matches('[type=button]')) return;
+
+    const el = e.target;
+    const action = el.dataset.checkbox;
+
+    if (action.includes("clear")) {
+      console.log("Clear all: ", action);
+      localStorage.clear();
+      clearList();
+    }
+
+   /* items.forEach(item => {
+      item.done =  "true"
+
+      console.log(checkbx)
+    });
+    localStorage.setItem('items', JSON.stringify(items));*/
+    populateList(items, itemsList);
+    
+  }
+
+    addItems.addEventListener('click', modifyItems);  // listen for other buttons

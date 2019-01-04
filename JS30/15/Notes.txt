@@ -1,0 +1,10 @@
+Create a function to remove one item
+- if Remove link clicked, remove that one item in list; remove from localStorage
+
+Creae a function to remove all item
+- if Clear All button clicked remove all items in list; clear localStorage
+
+Create a function to check/uncheck all items
+- if button clicked with 'checked' status, apply to all buttons
+- if button clicked with 'unchecked' status remove 'checked' attribute from all buttons that have it
+- update local storage
