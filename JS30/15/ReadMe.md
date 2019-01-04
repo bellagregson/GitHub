@@ -262,3 +262,59 @@ function myFunction() {
 }
 ```
 
+
+
+element.matches()
+------------------------------------------
+``var result = element.matches(selectorString);``
+The matches() method of the Element interface returns true if the element would be selected by the specified selector string; otherwise, it returns false.
+
+*Parameter Values*
+* _selectorString_ is a string representing the selector to test.
+
+*Example*
+This will log "The Philippine eagle is endangered!" to the console, since the element has indeed a class attribute with value endangered.
+
+```
+<ul id="birds">
+  <li>Orange-winged parrot</li>
+  <li class="endangered">Philippine eagle</li>
+  <li>Great white pelican</li>
+</ul>
+
+<script type="text/javascript">
+  var birds = document.getElementsByTagName('li');
+
+  for (var i = 0; i < birds.length; i++) {
+    if (birds[i].matches('.endangered')) {
+      console.log('The ' + birds[i].textContent + ' is endangered!');
+    }
+  }
+</script>
+```
+
+
+data attributes
+------------------------------------------
+``<element data-*="somevalue">``
+The data-* attributes is used to store custom data private to the page or application.
+
+The data-* attributes gives us the ability to embed custom data attributes on all HTML elements.
+
+The stored (custom) data can then be used in the page's JavaScript to create a more engaging user experience (without any Ajax calls or server-side database queries).
+
+The data-* attributes consist of two parts:
+
+The attribute name should not contain any uppercase letters, and must be at least one character long after the prefix "data-"
+
+The attribute value can be any string
+
+Note: Custom attributes prefixed with "data-" will be completely ignored by the user agent.
+
+```
+<ul>
+  <li data-animal-type="bird">Owl</li>
+  <li data-animal-type="fish">Salmon</li> 
+  <li data-animal-type="spider">Tarantula</li> 
+</ul>
+```
