@@ -238,9 +238,7 @@ function(currentValue, index, arr)
 
 thisValue	
 * Optional. 
-* A value to be passed to the function to be used as its 
-
-"this" value.
+* A value to be passed to the function to be used as its "this" value.
 * If this parameter is empty, the value "undefined" will be passed as its "this" value
 
 Get the full name for each person in the array:
