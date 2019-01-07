@@ -2,6 +2,83 @@
 
 Array methods: https://www.w3schools.com/jsref/jsref_obj_array.asp
 
+
+regular expressions
+--------------------------------------------
+``/pattern/modifiers;``
+
+A regular expression is a sequence of characters that forms a search pattern.
+
+When you search for data in a text, you can use this search pattern to describe what you are searching for.
+
+A regular expression can be a single character, or a more complicated pattern.
+
+Regular expressions can be used to perform all types of **text search** and **text replace operations**.
+
+``var patt = /w3schools/i;``
+
+* /w3schools/i  is a regular expression.
+* w3schools  is a pattern (to be used in a search).
+* i  is a modifier (modifies the search to be case-insensitive).
+
+**Using String Methods**
+
+In JavaScript, regular expressions are often used with the two string methods: search() and replace().
+
+The search() method uses an expression to search for a match, and returns the position of the match.
+
+The replace() method returns a modified string where the pattern is replaced.
+
+**Using test()**
+
+The test() method is a RegExp expression method.
+
+It searches a string for a pattern, and returns true or false, depending on the result.
+
+The following example searches a string for the character "e":
+
+```
+var patt = /e/;
+patt.test("The best things in life are free!");
+```
+Since there is an "e" in the string, the output of the code above will be:
+``true``
+
+
+
+string.replace()
+--------------------------------------------
+``string.replace(searchvalue, newvalue)``
+
+The replace() method searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced.
+
+Note: If you are replacing a value (and not a regular expression), only the first instance of the value will be replaced. To replace all occurrences of a specified value, use the global (g) modifier (see "More Examples" below).
+
+This method does not change the original string.
+
+**Parameter Values**
+
+* _searchvalue_ Required. The value, or regular expression, that will be replaced by the new value
+* _newvalue_  Required. The value to replace the search value with
+
+**Example**
+
+Perform a global, case-insensitive replacement:
+```
+var str = "Mr Blue has a blue house and a blue car";
+var res = str.replace(/blue/gi, "red");
+// Mr red has a red house and a red car.
+```
+
+Using a function to return the replacement text:
+```
+var str = "Mr Blue has a blue house and a blue car";
+var res = str.replace(/blue|house|car/gi, function (x) {
+  return x.toUpperCase();
+});
+// Mr BLUE has a BLUE HOUSE and a BLUE CAR.
+``
+
 array.sort()
 --------------------------------------------
 ``array.sort(compareFunction)``
