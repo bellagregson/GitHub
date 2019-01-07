@@ -77,7 +77,7 @@ var res = str.replace(/blue|house|car/gi, function (x) {
   return x.toUpperCase();
 });
 // Mr BLUE has a BLUE HOUSE and a BLUE CAR.
-``
+```
 
 array.sort()
 --------------------------------------------
@@ -290,7 +290,6 @@ function myFunction() {
   document.getElementById("demo").innerHTML = ages.some(checkAdult);
 }
 ```
-
 
 array.findIndex()
 --------------------------------------------
