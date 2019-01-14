@@ -61,9 +61,77 @@ Create an Array from a String
 
 
 
-Date/Time object
+Using data attributes
 ---------------------------------
 
+* Any attribute on any element whose attribute name starts with **data-** is a data attribute. 
+* Say you have an article and you want to store some extra information that doesn’t have any visual representation. 
+* Just use data attributes for that.
+
+```
+<article
+  id="electriccars"
+  data-columns="3"
+  data-index-number="12314"
+  data-parent="cars">
+...
+</article>
+```
+
+**JavaScript access**
+
+* You could use **getAttribute()** with their full HTML name to read them
+* The standard defines a simpler way: a DOMStringMap you can read out via a **dataset** property.
+
+To get a data attribute through the dataset object:
+* Get the property by the part of the attribute name after data
+* Dashes are converted to camelCase
+
+```
+var article = document.getElementById('electriccars');
+ 
+article.dataset.columns // "3"
+article.dataset.indexNumber // "12314"
+article.dataset.parent // "cars"
+```
 
 
 
+Array.map()
+---------------------------------
+``array.map(function(currentValue, index, arr), thisValue)``
+
+* The map() method creates a new array with the results of calling a function for every array element.
+* The map() method calls the provided function once for each element in an array, in order.
+* Note: map() does not execute the function for array elements without values.
+* Note: map() does not change the original array.
+
+**Parameter Values**
+
+* _function(currentValue, index, arr)_	Required. A function to be run for each element in the array.
+* Function arguments:
+	* _currentValue_	Required. The value of the current element
+	* _index_	Optional. The array index of the current element
+	* _arr_	Optional. The array object the current element belongs to
+* _thisValue_	Optional. A value to be passed to the function to be used as its "this" value. If this parameter is empty, the value "undefined" will be passed as its "this" value
+
+**Example** 
+
+Get the full name for each person in the array:
+```
+var persons = [
+  {firstname : "Malcom", lastname: "Reynolds"},
+  {firstname : "Kaylee", lastname: "Frye"},
+  {firstname : "Jayne", lastname: "Cobb"}
+];
+
+
+function getFullName(item, index) {
+  var fullname = [item.firstname,item.lastname].join(" ");
+  return fullname;
+}
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = persons.map(getFullName);
+}
+```
