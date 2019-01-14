@@ -135,3 +135,35 @@ function myFunction() {
   document.getElementById("demo").innerHTML = persons.map(getFullName);
 }
 ```
+
+
+
+String.split()
+---------------------------------
+``string.split(separator, limit)``
+
+* The split() method is used to split a string into an array of substrings, and returns the new array.
+* Tip: If an empty string ("") is used as the separator, the string is split between each character.
+* Note: The split() method does not change the original string.
+
+** Parameter Values**
+
+* _separator_	Optional. Specifies the character, or the regular expression, to use for splitting the string. If omitted, the entire string will be returned (an array with only one item)
+* _limit_	Optional. An integer that specifies the number of splits, items after the split limit will not be included in the array
+
+**Example**
+
+Split a string into an array of substrings:
+``` 
+var str = "How are you doing today?";
+ var res = str.split(" ");
+ document.getElementById("demo").innerHTML = res;
+ // How,are,you,doing,today?
+ ```
+
+ Use the limit parameter:
+```
+var str = "How are you doing today?";
+var res = str.split(" ", 3);
+// How,are,you
+```
