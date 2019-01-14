@@ -48,13 +48,15 @@ Array.from()
 
 * The Array.from() method returns an Array object from any object with a **length property** or an **iterable object**.
 
-Parameter Values
+**Parameter Values**
+
 * _object_	Required. The object to convert to an array
 * _mapFunction_	Optional. A map function to call on each item of the array
 * _thisValue_	Optional. A value to use as this when executing the mapFunction
 
-Example
-Create an Array from a String:
+**Example**
+
+Create an Array from a String
 ``var myArr = Array.from("ABCDEFG");``
 
 
