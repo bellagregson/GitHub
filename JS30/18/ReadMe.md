@@ -188,3 +188,80 @@ Example
 var y = "John";   // y is a string
 var x = + y;      // x is a number (NaN)
 ```
+
+
+
+parseFloat()
+---------------------------------
+``parseFloat(string)``
+
+* The parseFloat() function parses a string and returns a floating point number.
+* This function determines if the first character in the specified string is a number. If it is, it parses the string until it reaches the end of the number, and returns the number as a number, not as a string.
+* Note: Only the first number in the string is returned!
+* Note: Leading and trailing spaces are allowed.
+* Note: If the first character cannot be converted to a number, parseFloat() returns NaN.
+
+**Parameter Values**
+
+* _string_	Required. The string to be parsed
+
+**Example**
+
+Parse different strings:
+```
+var a = parseFloat("10") + "<br>";
+var b = parseFloat("10.00") + "<br>";
+var c = parseFloat("10.33") + "<br>";
+var d = parseFloat("34 45 66") + "<br>";
+var e = parseFloat(" 60 ") + "<br>";
+var f = parseFloat("40 years") + "<br>";
+var g = parseFloat("He was 40") + "<br>";
+
+var n = a + b + c + d + e + f + g;
+
+// results
+10
+10
+10.33
+34
+60
+40
+NaN
+```
+
+
+
+Math.floor()
+---------------------------------
+``Math.floor(x)``
+
+* The floor() method rounds a number DOWNWARDS to the nearest integer, and returns the result.
+* If the passed argument is an integer, the value will not be rounded.
+
+**Parameter Values**
+
+* _x_	Required. The number you want to round
+
+**Example**
+
+Round a number downward to its nearest integer:
+```
+Math.floor(1.6);
+// 1
+```
+
+
+Modulus / Remainder
+---------------------------------
+``x = y % 2``
+
+* The modulus operator (%) returns the division remainder.
+* In arithmetic, the division of two integers produces a quotient and a remainder.
+* In mathematics, the result of a modulo operation is the remainder of an arithmetic division.
+
+Example
+```
+var x = 5;
+var y = 2;
+var z = x % y;
+```
