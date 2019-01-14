@@ -167,3 +167,24 @@ var str = "How are you doing today?";
 var res = str.split(" ", 3);
 // How,are,you
 ```
+
+
+
+The Unary + Operator
+---------------------------------
+
+The unary **+** operator can be used to convert a variable to a number:
+
+Example
+```
+var y = "5";      // y is a string
+var x = + y;      // x is a number
+```
+
+If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):
+
+Example
+```
+var y = "John";   // y is a string
+var x = + y;      // x is a number (NaN)
+```
