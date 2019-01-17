@@ -42,7 +42,8 @@ getUserMedia()
 MediaDevices.getUserMedia() Method
 -------------------------------------------------
 
-* The MediaDevices getUserMedia() method prompts the user for permission to use a media input which produces a MediaStream with tracks containing the requested types of media. 
+The MediaDevices getUserMedia() method prompts the user for permission to use a media input which produces a MediaStream with tracks containing the requested types of media. 
+
 * That stream can include, for example:
 	* a video track (produced by either a hardware or virtual video source such as a camera, video recording device, screen sharing service, and so forth)
 	* an audio track (similarly, produced by a physical or virtual audio source like a microphone, A/D converter, or the like)
@@ -149,7 +150,7 @@ This example gives a preference for camera resolution, and assigns the resulting
 // Prefer camera resolution nearest to 1280x720.
 var constraints = { audio: true, video: { width: 1280, height: 720 } }; 
 
-navigator.mediaDevices.getUserMedia(constraints)
+n(constraints)
 .then(function(mediaStream) {
   var video = document.querySelector('video');
    = mediaStream;
@@ -162,6 +163,29 @@ navigator.mediaDevices.getUserMedia(constraints)
 
 
 video.srcObject
+----------------------------------------------
+Return the src property:
+``videoObject.src``
+
+Set the src property:
+``videoObject.src = URL``
+
+The src property sets or returns the value of the src attribute of a video.
+
+The src attribute specifies the location (URL) of the video file.
+
+
+**Property Values**
+
+URL 
+* Specifies the URL of the video file.
+* An absolute URL - points to another web site (like src="http://www.example.com/movie.ogg")
+* A relative URL - points to a file within a web site (like src="movie.ogg")
+
+
+
+
+video.play()
 ----------------------------------------------
 
 
