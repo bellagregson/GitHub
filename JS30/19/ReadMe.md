@@ -119,7 +119,7 @@ A Promise whose fulfillment handler receives a MediaStream object when the reque
 
 Rejections of the returned promise are made by passing a DOMException error object to the promise's failure handler. Possible errors are:
 
-AbortError
+_AbortError_
 Although the user and operating system both granted access to the hardware device, and no hardware issues occurred that would cause a NotReadableError, some problem occurred which prevented the device from being used.
 
 _NotAllowedError_
@@ -185,8 +185,104 @@ URL
 
 
 
-video.play()
+URL.createObjectURL()
 ----------------------------------------------
+``objectURL = URL.createObjectURL(object);``
 
+The URL.createObjectURL() method creates a DOMString containing a URL representing the object given in the parameter. 
+
+The URL lifetime is tied to the document in the window on which it was created. 
+
+The new object URL represents the specified File object or Blob object.
+
+To release an object URL, call _revokeObjectURL()_
+
+Note: This feature is available in Web Workers.
+Note: This feature is not available in Service Workers due to its potential to create memory leaks.
+
+** Parameter Values**
+
+object
+* A File, Blob or MediaSource object to create an object URL for.
+* Return value: A DOMString containing an object URL that can be used to reference the contents of the specified source object.
+
+
+** Examples **
+
+Using object URLs to display images:
+```
+const img = document.createElement("img");
+      img.src = window.URL.createObjectURL(files[i]);
+      img.height = 60;
+      img.onload = function() {
+        window.URL.revokeObjectURL(this.src);
+      }
+```      
 
 ## Screen capture
+
+ctx.drawImage()
+------------------------------------------
+```
+void ctx.drawImage(image, dx, dy);
+void ctx.drawImage(image, dx, dy, dWidth, dHeight);
+void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+```
+
+The CanvasRenderingContext2D.drawImage() method of the Canvas 2D API provides different ways to draw an image onto the canvas.
+
+
+**Parameters**
+
+image
+An element to draw into the context. The specification permits any canvas image source (CanvasImageSource), specifically, a CSSImageValue, an HTMLImageElement, an SVGImageElement, an HTMLVideoElement, an HTMLCanvasElement, an ImageBitmap, or an OffscreenCanvas.
+
+sx Optional
+The x-axis coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.
+
+sy Optional
+The y-axis coordinate of the top left corner of the sub-rectangle of the source image to draw into the destination context.
+
+sWidth Optional
+The width of the sub-rectangle of the source image to draw into the destination context. If not specified, the entire rectangle from the coordinates specified by sx and 
+sy to the bottom-right corner of the image is used.
+
+sHeight Optional
+The height of the sub-rectangle of the source image to draw into the destination context.
+
+dx
+The x-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+
+dy
+The y-axis coordinate in the destination canvas at which to place the top-left corner of the source image.
+
+dWidth Optional
+The width to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn.
+
+dHeight Optional
+The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.
+
+
+**Exceptions thrown**
+
+INDEX_SIZE_ERR
+If the canvas or source rectangle width or height is zero.
+
+INVALID_STATE_ERR
+The image has no image data.
+
+TYPE_MISMATCH_ERR
+The specified source element isn't supported.
+
+NS_ERROR_NOT_AVAILABLE
+The image is not loaded yet. Use .complete === true and .onload to determine when it is ready.
+
+**Example**
+
+```
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const image = document.getElementById('source');
+
+ctx.drawImage(image, 33, 71, 104, 124, 21, 20, 87, 104);
+```
