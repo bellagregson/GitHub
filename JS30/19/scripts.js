@@ -3,3 +3,36 @@ const canvas = document.querySelector('.photo');
 const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
+
+function getVideo() {
+	navigator.mediaDevices.getUserMedia({video: true, audio: false})
+	.then(localMediaStream => {
+		console.log(localMediaStream);
+		video.src = window.URL.createObjectURL(localMediaStream);
+		//video.play();
+	})
+	.catch(err => {
+		console.error(err.name + ": " + err.message);
+	})
+}
+
+function paintToCanvas() {
+	const width = video.videoWidth;
+	const height = video.videoHeight;
+
+	canvas.width = width;
+	canvas.height = height;
+
+	setInterval(() => {
+		console.log('hi')
+	}, 16);
+
+	console.log(width, height); 
+}
+
+function takePhoto() {
+	console.log('click');
+	paintToCanvas();
+}
+
+getVideo();
