@@ -1,4 +1,104 @@
 # Webcam Fun
+## DOM
+
+document.createElement()
+--------------------------------------
+``document.createElement(nodename)`` 
+
+The createElement() method creates an Element Node with the specified name.
+
+Tip: Use the createTextNode() method to create a text node.
+
+Tip: After the element is created, use the element.appendChild() or element.insertBefore() method to insert it to the document.
+
+**Parameter values**
+
+nodename  
+* String 
+* Required. 
+* The name of the element you want to create
+
+**Example**
+
+Create a <p> element with some text, and append it to the document:
+```
+var para = document.createElement("P");  // Create a <p> element
+var t = document.createTextNode("Hi Mom");   // Create a text node
+para.appendChild(t);      // Append the text to <p>
+document.body.appendChild(para);   // Append <p> to <body>
+```
+
+element.insertBefore()
+--------------------------------------
+``node.insertBefore(newnode, existingnode)``
+
+The insertBefore() method inserts a node as a child, right before an existing child, which you specify.
+
+Tip: If you want to create a new list item, with text, remember to create the text as a Text node which you append to the <li> element, then insert <li> to the list.
+
+You can also use the insertBefore method to insert/move an existing element 
+
+**Parameter values**
+
+newnode 
+* Node object 
+* Required. 
+* The node object you want to insert
+
+existingnode  
+* Node object 
+* Required. 
+* The child node you want to insert the new node before. 
+* If set to null, the insertBefore method will insert the newnode at the end
+
+**Example**
+
+Move a <li> element from one list to another:
+```
+var node = document.getElementById("myList2").lastChild;
+var list = document.getElementById("myList1");
+list.insertBefore(node, list.childNodes[0]);
+```
+
+element.setAttribute()
+-----------------------------------
+``element.setAttribute(attributename, attributevalue)``
+
+The setAttribute() method adds the specified attribute to an element, and gives it the specified value.
+
+If the specified attribute already exists, only the value is set/changed.
+
+Note: Although it is possible to add the style attribute with a value to an element with this method, it is recommended that you use properties of the Style object instead for inline styling, because this will not overwrite other CSS properties that may be specified in the style attribute:
+
+Bad example:
+``element.setAttribute("style", "background-color: red;");``
+
+Tip: Use the _removeAttribute()_ method to remove an attribute from an element.
+
+Tip: See also the _setAttributeNode()_ method.
+
+**Parameter values**
+
+attributename 
+* String  
+* Required. 
+* The name of the attribute you want to add
+
+attributevalue  
+* String  
+* Required. 
+* The value of the attribute you want to add
+
+** Example**
+
+Add the class attribute with the value of "democlass" to a <h1> element:
+``document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");``
+
+Change an input field to an input button:
+``document.getElementsByTagName("INPUT")[0].setAttribute("type", "button");``
+
+
+
 
 ## Video
 
@@ -219,6 +319,43 @@ const img = document.createElement("img");
       }
 ```      
 
+
+
+video.canplay Event
+------------------------------------------
+
+In HTML:
+``<audio|video oncanplay="myScript">``
+
+In JavaScript:
+``audio|video.oncanplay=function(){myScript};``
+
+In JavaScript, using the addEventListener() method:
+``audio|video.addEventListener("canplay", myScript);``
+
+The canplay event occurs when the browser can start playing the specified audio/video (when it has buffered enough to begin).
+
+During the loading process of an audio/video, the following events occur, in this order:
+
+* loadstart
+* durationchange
+* loadedmetadata
+* loadeddata
+* progress
+* canplay
+* canplaythrough
+
+**Example**
+
+Alert that the audio is ready to start playing:
+```
+var aud = document.getElementById("myAudio");
+aud.oncanplay = function() {
+    alert("Can start playing audio");
+};
+```
+
+
 ## Screen capture
 
 ctx.drawImage()
@@ -286,3 +423,37 @@ const image = document.getElementById('source');
 
 ctx.drawImage(image, 33, 71, 104, 124, 21, 20, 87, 104);
 ```
+
+
+
+HTMLCanvasElement.toDataURL()
+------------------------------------------
+``canvas.toDataURL(type, encoderOptions);``
+
+The HTMLCanvasElement.toDataURL() method returns a data URI containing a representation of the image in the format specified by the type parameter (defaults to PNG). The returned image is in a resolution of 96 dpi.
+
+If the height or width of the canvas is 0, the string "data:," is returned.
+
+If the requested type is not image/png, but the returned value starts with data:image/png, then the requested type is not supported.
+
+Chrome also supports the image/webp type
+
+**Parameter Values**
+
+type 
+* Optional
+* A DOMString indicating the image format. The default format type is image/png.
+
+encoderOptions 
+* Optional
+* A Number between 0 and 1 indicating the image quality to use for image formats that use lossy compression such as image/jpeg and image/webp.
+* If this argument is anything else, the default value for image quality is used. The default value is 0.92. Other arguments are ignored
+
+**Return value**
+
+* A DOMString containing the requested data URI.
+
+**Exceptions**
+
+SecurityError
+* The canvas's bitmap is not origin clean; at least some of its contents have or may have been loaded from a site other than the one from which the document itself was loaded.
