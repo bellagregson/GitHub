@@ -7,9 +7,8 @@ const snap = document.querySelector('.snap');
 function getVideo() {
 	navigator.mediaDevices.getUserMedia({video: true, audio: false})
 	.then(localMediaStream => {
-		console.log(localMediaStream);
 		video.src = window.URL.createObjectURL(localMediaStream);
-		//video.play();
+		video.play();
 	})
 	.catch(err => {
 		console.error(err.name + ": " + err.message);
@@ -23,16 +22,29 @@ function paintToCanvas() {
 	canvas.width = width;
 	canvas.height = height;
 
-	setInterval(() => {
-		console.log('hi')
-	}, 16);
+	console.log("paintToCanvas");
 
-	console.log(width, height); 
+	setInterval(() => {
+		ctx.drawImage(video, 0, 0, width, height);
+	}, 300);
+
 }
 
 function takePhoto() {
-	console.log('click');
-	paintToCanvas();
+	snap.currentTime = 0;
+	snap.play();
+
+	const data = canvas.toDataURL('image/jpeg');
+	const link = document.createElement('a');
+	
+	link.href = data;
+	link.setAttribute('download', 'handsome');
+	link.textConent = "Download image"
+
 }
 
 getVideo();
+
+
+// run paintToCanvas function when video starts playing
+video.addEventListener('canplay', paintToCanvas);
