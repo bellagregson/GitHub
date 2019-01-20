@@ -1,4 +1,5 @@
 # Webcam Fun
+
 ## DOM
 
 document.createElement()
@@ -96,6 +97,41 @@ Add the class attribute with the value of "democlass" to a <h1> element:
 
 Change an input field to an input button:
 ``document.getElementsByTagName("INPUT")[0].setAttribute("type", "button");``
+
+
+<a> tag
+--------------------------------------
+
+The <a> tag defines a hyperlink, which is used to link from one page to another.
+
+The most important attribute of the <a> element is the href attribute, which indicates the link's destination.
+
+Tip: The following attributes: **download, hreflang, media, rel, target, and type** cannot be present if the href attribute is not present.
+
+
+**Attributes**
+
+These are just a few of the many attributes
+
+download  
+* value = filename  
+* Specifies that the target will be downloaded when a user clicks on the hyperlink
+
+href  
+* value = URL 
+* Specifies the URL of the page the link goes to
+
+hreflang  
+* value = language_code 
+* Specifies the language of the linked document
+
+media 
+* value = media_query 
+* Specifies what media/device the linked document is optimized for
+
+type  
+* value = media_type  
+* Specifies the media type of the linked document
 
 
 
@@ -262,7 +298,34 @@ n(constraints)
 ```
 
 
-video.srcObject
+HTMLMediaElement.srcObject
+----------------------------------------------
+
+``var sourceObject = HTMLMediaElement.srcObject;``
+
+``HTMLMediaElement.srcObject = sourceObject;``
+
+The srcObject property of the HTMLMediaElement interface sets or returns the object which serves as the source of the media associated with the HTMLMediaElement. The object can be a MediaStream, a MediaSource, a Blob, or a File (which inherits from Blob).
+
+Note: As of November 2017, browsers only support MediaStream. For MediaSource, Blob and File, you have to create a URL with URL.createObjectURL() and assign it to HTMLMediaElement.src. See below for an example.
+
+Older versions of the Media Source specification required using createObjectURL() to create an object URL then setting src to that URL. Now you can just set srcObject to the MediaStream directly.
+
+**Parameter values**
+
+A MediaStream, MediaSource, Blob, or File object (though see the compatibility table for what is actually supported).
+
+**Examples** 
+
+In this example, a media source is assigned to a newly-created <video> element.
+```
+const mediaSource = new MediaSource();
+const video = document.createElement('video');
+video.srcObject = mediaSource;
+```
+
+
+video.src property
 ----------------------------------------------
 Return the src property:
 ``videoObject.src``
