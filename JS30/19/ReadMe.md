@@ -520,3 +520,106 @@ encoderOptions
 
 SecurityError
 * The canvas's bitmap is not origin clean; at least some of its contents have or may have been loaded from a site other than the one from which the document itself was loaded.
+
+
+
+CanvasRenderingContext2D.getImageData()
+------------------------------------------
+
+The CanvasRenderingContext2D method getImageData() returns an ImageData object representing the underlying pixel data for a specified portion of the canvas.
+
+This method is not affected by the canvas's transformation matrix. If the specified rectangle extends outside the bounds of the canvas, the pixels outside the canvas are transparent black in the returned ImageData object.
+
+Note: Image data can be painted onto a canvas using the _putImageData()_ method.
+
+**Parameter values**
+
+sx
+* The x-axis coordinate of the top-left corner of the rectangle from which the ImageData will be extracted.
+
+sy
+* The y-axis coordinate of the top-left corner of the rectangle from which the ImageData will be extracted.
+
+sw
+* The width of the rectangle from which the ImageData will be extracted. Positive values are to the right, and negative to the left.
+
+sh
+* The height of the rectangle from which the ImageData will be extracted. Positive values are down, and negative are up.
+
+
+**Return value**
+
+An ImageData object containing the image data for the rectangle of the canvas specified. 
+
+The coordinates of the rectangle's top-left corner are (sx, sy), while the coordinates of the bottom corner are (sx + sw, sy + sh).
+
+**Exceptions**
+
+IndexSizeError
+* Thrown if either sw or sh are zero.
+
+SecurityError
+* The canvas contains or may contain pixels which were loaded from an origin other than the one from which the document itself was loaded. 
+* To avoid SecurityError being thrown in this situation, configure CORS to allow the source image to be use in this way.
+
+**Example** 
+
+The object retrieved by getImageData() has a width of 200 and a height of 100, for a total of 20,000 pixels. Of those pixels, most are either transparent or taken from off the canvas; only 5,000 of them are opaque black (the color of the drawn rectangle).
+```
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+ctx.rect(10, 10, 100, 100);
+ctx.fill();
+
+let imageData = ctx.getImageData(60, 60, 200, 100);
+ctx.putImageData(imageData, 150, 10)
+```
+
+
+CanvasRenderingContext2D.putImageData()
+------------------------------------------
+```
+void ctx.putImageData(imageData, dx, dy);
+void ctx.putImageData(imageData, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight);
+```
+The CanvasRenderingContext2D.putImageData() method of the Canvas 2D API paints data from the given ImageData object onto the canvas. If a dirty rectangle is provided, only the pixels from that rectangle are painted. This method is not affected by the canvas transformation matrix.
+
+Note: Image data can be retrieved from a canvas using the getImageData() method.
+
+You can find more information about putImageData() and general manipulation of canvas contents in the article Pixel manipulation with canvas.
+
+**Parameters values**
+
+imageData: 
+* An ImageData object containing the array of pixel values.
+
+dx
+* Horizontal position (x coordinate) at which to place the image data in the destination canvas.
+
+dy
+* Vertical position (y coordinate) at which to place the image data in the destination canvas.
+
+dirtyX 
+* Optional
+* Horizontal position (x coordinate) of the top-left corner from which the 
+image data will be extracted. Defaults to 0.
+
+dirtyY 
+* Optional
+* Vertical position (y coordinate) of the top-left corner from which the image data will be extracted. Defaults to 0.
+
+dirtyWidth 
+* Optional
+Width of the   to be painted. Defaults to the width of the image data.
+
+dirtyHeight 
+*  Optional
+* Height of the rectangle to be painted. Defaults to the height of the image data.
+
+**Errors thrown**
+
+NotSupportedError
+* Thrown if any of the arguments is infinite.
+
+InvalidStateError
+* Thrown if the ImageData object's data has been detached.
