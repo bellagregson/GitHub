@@ -4,21 +4,109 @@
 
 SpeechRecognition
 --------------------------------------
-interimResults
---------------------------------------
-speech recognition.start()
---------------------------------------
-element.results
-- transcript'
-- confidence
-- isFinal
+``var myRecognition = new SpeechRecognition();``
+
+The SpeechRecognition interface of the Web Speech API is the controller interface for the recognition service; this also handles the SpeechRecognitionEvent sent from the recognition service.
+
+**Constructor**
+
+SpeechRecognition.SpeechRecognition()
+* Creates a new SpeechRecognition object.
+
+**Properties**
+
+SpeechRecognition also inherits properties from its parent interface, EventTarget.
+
+SpeechRecognition.interimResults
+* Controls whether interim results should be returned (true) or not (false.) 
+* Interim results are results that are not yet final (e.g. the SpeechRecognitionResult.isFinal property is false.)
 
 
-addEventListener 'result'
+SpeechRecognition.interimResults
+--------------------------------------
+```
+var myInterimResult = mySpeechRecognition.interimResults;
+mySpeechRecognition.interimResults = false;
+```
+The interimResults property of the SpeechRecognition interface controls whether interim results should be returned (true) or not (false.) 
+
+Interim results are results that are not yet final (e.g. the SpeechRecognitionResult.isFinal property is false.)
+
+The default value for interimResults is false.
+
+**Value**
+
+A Boolean representing the state of the current SpeechRecognition's interim results. true means interim results are returned, and false means they aren't.
+
+
+SpeechRecognition.start()
+--------------------------------------
+``mySpeechRecognition.start();``
+
+The start() method of the Web Speech API starts the speech recognition service listening to incoming audio with intent to recognize grammars associated with the current SpeechRecognition.
+
+```
+var recognition = new SpeechRecognition();
+
+document.body.onclick = function() {
+  recognition.start();
+  console.log('Ready to receive a color command.');
+}
+```
+
+
+SpeechRecognitionAlternative
+--------------------------------------
+The SpeechRecognitionAlternative represents a simple view of the response that gets used in a n-best list.
+
+transcript attribute
+* Of type DOMString, readonly
+* The transcript string represents the raw words that the user spoke. 
+* For continuous recognition, leading or trailing whitespace MUST be included where necessary such that concatenation of consecutive SpeechRecognitionResults produces a proper transcript of the session.
+
+confidence attribute
+* Of type float, readonly
+* The confidence represents a numeric estimate between 0 and 1 of how confident the recognition system is that the recognition is correct. 
+* A higher number means the system is more confident.
+
+
+SpeechRecognitionResult
 --------------------------------------
 
-addEventListener  'end'
+The SpeechRecognitionResult interface of the Web Speech API represents a single recognition match, which may contain multiple SpeechRecognitionAlternative objects.
+
+**Properties**
+
+SpeechRecognitionResult.isFinal
+* A Boolean that states whether this result is final (true) or not (false)
+* If true, then this is the final time this result will be returned; 
+* If false, then this result is an interim result, and may be updated later on.
+
+SpeechRecognitionResult.length
+* Returns the length of the "array" — the number of SpeechRecognitionAlternative objects contained in the result (also referred to as "n-best alternatives".)
+
+**Methods**
+
+SpeechRecognitionResult.item
+* A standard getter that allows SpeechRecognitionAlternative objects within the result to be accessed via array syntax
+
+
+
+result event
 --------------------------------------
+Fired when the recognition service has begun to listen to the audio with the intention of recognizing.
+
+
+
+addEventListener 'start' event
+--------------------------------------
+
+Fired when the recognition service has begun to listen to the audio with the intention of recognizing.
+
+
+addEventListener  'end' event
+--------------------------------------
+Fired when the service has disconnected. The event must always be generated when the session ends no matter the reason for the end.
 
 
 #DOM
