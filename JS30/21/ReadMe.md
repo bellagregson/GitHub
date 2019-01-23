@@ -300,19 +300,23 @@ function getTextContent() {
 </script>
 ```
 
-Get the content of the <p> element above with the specified properties:
+Get the content of the 'p' element above with the specified properties:
 
 innerText returns: 
-"This element has extra spacing and contains a span element."
+``This element has extra spacing and contains a span element.``
+
 _The innerText property returns just the text, without spacing and inner element tags._
 
 innerHTML returns: 
-"   This element has extra spacing     and contains <span>a span element</span>."
+``   This element has extra spacing     and contains <span>a span element</span>.``
+
 _The innerHTML property returns the text, including all spacing and inner element tags._
 
 textContent returns: 
-"   This element has extra spacing    and contains a span element."
-_The textContent property returns the text with spacing, but without inner element tags._
+``   This element has extra spacing    and contains a span element.``
+
+_The textContent property returns the text with 
+spacing, but without inner element tags._
 
 
 Style transform CSS Property
