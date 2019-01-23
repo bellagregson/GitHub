@@ -172,3 +172,145 @@ The Coordinates.speed read-only property is a double representing the velocity o
 
 This value is null if the implementation is not able to measure it.
 
+
+innerText Property
+-------------------------------------------------
+Return the text content of a node:
+``node.innerText``
+
+Set the text content of a node:
+``node.innerText = text``
+
+The innerText property sets or returns the text content of the specified node, and all its descendants.
+
+If you set the innerText property, any child nodes are removed and replaced by a single Text node containing the specified string.
+
+Note: This property is similar to the textContent property, however there are some differences:
+
+_textContent_ returns the text content of all elements, while innerText returns the content of all elements, except for _script_ and _style_ elements.
+
+_innerText_ will not return the text of elements that are hidden with CSS (textContent will). 
+
+Tip: To set or return the HTML content of an element, use the _innerHTML_ property.
+
+**Property values**
+
+text	
+* Type: String
+* Specifies the text content of the specified node
+
+**Example**
+
+Get the inner text of an element:
+``var x = document.getElementById("myBtn").innerText;``
+
+innerHTML Property
+-------------------------------------------------
+Return the innerHTML property:
+``HTMLElementObject.innerHTML``
+
+Set the innerHTML property:
+``HTMLElementObject.innerHTML = text``
+
+The innerHTML property sets or returns the HTML content (inner HTML) of an element.
+
+**Property values**
+
+text
+* Specifies the HTML content of an element
+
+**Examples**
+
+Get the HTML content of a <p> element with id="myP":
+```
+var x = document.getElementById("myP").innerHTML;
+```
+
+Change the HTML content, URL, and target of a link:
+```
+document.getElementById("myAnchor").innerHTML = "W3Schools";
+document.getElementById("myAnchor").href = "https://www.w3schools.com";
+document.getElementById("myAnchor").target = "_blank";
+```
+
+textContent Property
+-------------------------------------------------
+Return the text content of a node:
+``node.textContent``
+
+Set the text content of a node:
+``node.textContent = text``
+
+The textContent property sets or returns the text content of the specified node, and all its descendants.
+
+If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.
+
+Note: This property is similar to the innerText property, however there are some differences:
+
+* _textContent_ returns the text content of all elements, while innerText returns the content of all elements, except for _script_ and _style_ elements.
+* _innerText_ will not return the text of elements that are hidden with CSS (textContent will). 
+
+Tip: Sometimes this property can be used instead of the nodeValue property, but remember that this property returns the text of all child nodes as well.
+
+Tip: To set or return the HTML content of an element, use the innerHTML property.
+
+**Property values**
+
+text
+* String
+* Specifies the text content of the specified node
+
+**Example**
+Get all the textual content of an <ul> element with id="myList":
+```
+var x = document.getElementById("myList").textContent;
+The value of x will be:
+
+//Coffee Tea
+```
+
+
+Differences between innerText, innerHTML and textContent
+-----------------------------------------------------
+
+* _textContent_ returns the text content of all elements, while innerText returns the content of all elements, except for _script_ and _style_ elements.
+
+* _innerText_ will not return the text of elements that are hidden with CSS (textContent will). 
+
+* _innerHTML_ To set or return the HTML content of an element, use the innerHTML property.
+
+**Example**
+
+This example demonstrates some of the differences between innerText, innerHTML and textContent:
+```
+<p id="demo">   This element has extra spacing     and contains <span>a span element</span>.</p>
+
+<script>
+function getInnerText() {
+  alert(document.getElementById("demo").innerText)
+}
+
+function getHTML() {
+  alert(document.getElementById("demo").innerHTML)
+}
+
+function getTextContent() {
+  alert(document.getElementById("demo").textContent)
+}
+</script>
+```
+
+Get the content of the <p> element above with the specified properties:
+
+innerText returns: 
+"This element has extra spacing and contains a span element."
+_The innerText property returns just the text, without spacing and inner element tags._
+
+innerHTML returns: 
+"   This element has extra spacing     and contains <span>a span element</span>."
+_The innerHTML property returns the text, including all spacing and inner element tags._
+
+textContent returns: 
+"   This element has extra spacing    and contains a span element."
+_The textContent property returns the text with spacing, but without inner element tags._
+
