@@ -314,3 +314,25 @@ textContent returns:
 "   This element has extra spacing    and contains a span element."
 _The textContent property returns the text with spacing, but without inner element tags._
 
+
+Style transform CSS Property
+------------------------------------------------
+Return the transform property:
+``object.style.transform``
+
+Set the transform property:
+``object.style.transform = "none|transform-functions|initial|inherit"``
+
+The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+
+**Property values**
+
+rotate(angle)
+* Defines a 2D rotation, the angle is specified in the parameter
+
+**Example**
+
+Rotate a div element:
+```
+document.getElementById("myDIV").style.transform = "rotate(7deg)";
+```
