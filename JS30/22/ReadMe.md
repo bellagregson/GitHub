@@ -1,10 +1,10 @@
 #Follow Along Link Highlighter
 
 DOM.getBoundingClientRect()
---------------------------------------------
+
 ``element.getBoundingClientRect()``
 
-The getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
+The getBoundingClientRect() method returns the size of an elemen--------------------------------------------t and its position relative to the viewport.
 
 This method returns a DOMRect object with eight properties: 
 * left
@@ -87,3 +87,34 @@ if (window.scrollX > 400) {
 }
 ```
 
+element.classList.add()
+--------------------------------------------
+``element.classList``
+
+The classList property returns the class name(s) of an element, as a DOMTokenList object.
+
+This property is useful to add, remove and toggle CSS classes on an element.
+
+The classList property is read-only, however, you can modify it by using the add() and remove() methods.
+
+**Methods**
+
+add(class1, class2, ...)	
+* Adds one or more class names to an element.
+* If the specified class already exist, the class will not be added
+
+
+style.transform CSS property
+--------------------------------------------
+Return the transform property:
+``object.style.transform``
+
+Set the transform property:
+``object.style.transform = "none|transform-functions|initial|inherit"``
+
+The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+
+**Property values**
+
+translate(x, y)	
+* Defines a 2D translation
