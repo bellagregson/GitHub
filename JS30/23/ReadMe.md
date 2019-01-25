@@ -7,9 +7,11 @@ The SpeechSynthesisUtterance interface of the Web Speech API represents a speech
 
 **Example**
 
-In our basic Speech synthesiser demo, we first grab a reference to the SpeechSynthesis controller using window.speechSynthesis. After defining some necessary variables, we retrieve a list of the voices available using SpeechSynthesis.getVoices() and populate a select menu with them so the user can choose what voice they want.
+In our basic Speech synthesiser demo, we first grab a reference to the SpeechSynthesis controller using window.speechSynthesis. 
 
-Inside the inputForm.onsubmit handler, we stop the form submitting with preventDefault(),  use the constructor to create a new utterance instance containing the text from the text <input>, set the utterance's voice to the voice selected in the <select> element, and start the utterance speaking via the SpeechSynthesis.speak() method.
+After defining some necessary variables, we retrieve a list of the voices available using SpeechSynthesis.getVoices() and populate a select menu with them so the user can choose what voice they want.
+
+Inside the inputForm.onsubmit handler, we stop the form submitting with preventDefault(),  use the constructor to create a new utterance instance containing the text from the text _input_, set the utterance's voice to the voice selected in the _select_ element, and start the utterance speaking via the SpeechSynthesis.speak() method.
 
 ```
 var synth = window.speechSynthesis;
