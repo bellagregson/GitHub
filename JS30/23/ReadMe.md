@@ -95,11 +95,67 @@ If unset, the app's (i.e. the _html_ lang value) lang will be used, or the user-
 A DOMString representing a BCP 47 language tag.
 
 
+SpeechSynthesisUtterance.pitch Property
+-------------------------------------
+```
+// default 1
+speechSynthesisUtteranceInstance.pitch = 1.5; 
+```
+
+The pitch property of the SpeechSynthesisUtterance interface gets and sets the pitch at which the utterance will be spoken at.
+
+If unset, a default value of 1 will be used.
+
+**Value**
+A float representing the pitch value. 
+
+It can range between 0 (lowest) and 2 (highest), with 1 being the default pitch for the current platform or voice. Some speech synthesis engines or voices may constrain the minimum and maximum rates further. 
+
+If SSML is used, this value will be overridden by prosody tags in the markup.
+
+
+SpeechSynthesisUtterance.rate Property
+-------------------------------------
+```
+var myRate = speechSynthesisUtteranceInstance.rate;
+speechSynthesisUtteranceInstance.rate = 1.5;
+```
+
+The rate property of the SpeechSynthesisUtterance interface gets and sets the speed at which the utterance will be spoken at.
+
+If unset, a default value of 1 will be used.
+
+**Value**
+
+A float representing the rate value. It can range between 0.1 (lowest) and 10 (highest), with 1 being the default pitch for the current platform or voice, which should correspond to a normal speaking rate. Other values act as a percentage relative to this, so for example 2 is twice as fast, 0.5 is half as fast, etc.
+
+Some speech synthesis engines or voices may constrain the minimum and maximum rates further. If SSML is used, this value will be overridden by prosody tags in the markup.
+
+
 SpeechSynthesis.getVoices() Method
 -------------------------------------
 ``speechSynthesisInstance.getVoices();``
 
-The getVoices() method of the SpeechSynthesis interface returns a list of SpeechSynthesisVoice objects representing all the available voices on the current device.
+The getVoices() method of the SpeechSynthesis interface returns a list of **SpeechSynthesisVoice** objects representing all the available voices on the current device.
+
+**Properties**
+
+All of these properties are read-only:
+
+SpeechSynthesisVoice.default 
+* A Boolean indicating whether the voice is the default voice for the current app language (true), or not (false.)
+
+SpeechSynthesisVoice.lang 
+* Returns a BCP 47 language tag indicating the language of the voice.
+
+SpeechSynthesisVoice.localService 
+* A Boolean indicating whether the voice is supplied by a local speech synthesizer service (true), or a remote speech synthesizer service (false.)
+
+SpeechSynthesisVoice.name 
+* Returns a human-readable name that represents the voice.
+
+SpeechSynthesisVoice.voiceURI 
+* Returns the type of URI and location of the speech synthesis service for this voice.
 
 **Example**
 ```
@@ -118,6 +174,27 @@ The getVoices() method of the SpeechSynthesis interface returns a list of Speech
     document.getElementById("voiceSelect").appendChild(option);
   }
 ```
+
+SpeechSynthesisVoice.name Property
+-------------------------------------
+```var voiceName = speechSynthesisVoiceInstance.name;```
+
+The name read-only property of the SpeechSynthesisVoice interface returns a human-readable name that represents the voice.
+
+**Value**
+
+A DOMString representing the name of the voice.
+
+
+SpeechSynthesisVoice.lang Property
+-------------------------------------
+``var myLang = speechSynthesisVoiceInstance.lang;``
+
+The lang read-only property of the SpeechSynthesisVoice interface returns a BCP 47 language tag indicating the language of the voice.
+
+**Value**
+
+A DOMString representing the language of the device.
 
 
 SpeechSynthesis.speak() Method
