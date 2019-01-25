@@ -1,4 +1,4 @@
-#Follow Along Link Highlighter
+# Follow Along Link Highlighter
 
 DOM.getBoundingClientRect()
 
