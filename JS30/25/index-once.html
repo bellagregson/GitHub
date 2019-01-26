@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding JavaScript's Capture</title>
+</head>
+<body class="bod">
+<span>When once=true option is included it will listen for the event then 'unbind' itself (similar to removeEventListener); so the event only fires once</span>
+
+  <div class="one">1
+    <div class="two">2
+      <div class="three">3
+      </div>
+    </div>
+  </div>
+
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after { box-sizing: inherit; }
+
+  div {
+    width:100%;
+    padding:100px;
+  }
+  span {
+    background-color: yellow;
+    font-family: Arial;
+  }
+  .one {
+    background: thistle;
+  }
+
+  .two {
+    background:mistyrose;
+  }
+
+  .three {
+    background:coral;
+  }
+</style>
+
+<button></button>
+<script>
+  const divs = document.querySelectorAll('div');
+
+  function logText(e) {
+    console.log(this.classList.value);
+
+ 
+    //console.log(this);
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {once: true}));
+
+</script>
+</body>
+</html>
