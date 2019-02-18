@@ -2,12 +2,134 @@
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Closure</title>
+		<title>Class #1 Assignment</title>
+
+		<style>
+			body {font-family: Arial;}
+			pre {background-color: #ddd; padding: 10px 0 0 0; }
+			pre.answer {background-color: yellow;}
+		</style>
 	</head>
 	<body>
 		
-		<h2>Scope</h2>
-		<p>A JavaScript Closure is when an inner function has access to members of the outer function (lexical scope) even when executing outside the scope of the outer function.</p>
-		<p>Scope refers to the extent of visibility of a variable defined in a program. Ways to create scope in JavaScript are through: try-catch blocks, functions, the let keyword with curly braces among others. We mainly have two variations of scope: the global scope and local scope.</p>
+		<h1>Class #1 Assignment</h1>
+		
+		<h2>EASY</h2>
+		<p>Write a piece of JavaScript code that when executed in the JavaScript console of this page
+		<a href="https://www.simoahava.com/analytics/element-visibility-trigger-google-tag-manager/">https://www.simoahava.com/analytics/element-visibility-trigger-google-tag-manager/</a>,
+		it returns the number of images contained in the HTML element</p> 
+
+		<pre>
+			&lt;div class="post-content">
+		</pre>
+
+		<h3>Answer</h3>
+
+		<pre class="answer">
+			document.querySelector('.post-content').querySelectorAll('img').length
+		</pre>
+<br/><br/>
+	<h2>INTERMEDIATE</h2>
+	<p>Write a piece of JavaScript code that when executed in the JavaScript console of this page
+	<a href="https://www.simoahava.com/analytics/element-visibility-trigger-google-tag-manager/">https://www.simoahava.com/analytics/element-visibility-trigger-google-tag-manager/</a>,
+	it returns the length of the header element of the page </p>
+	<pre>
+		&lt;h1 class="entry-title">
+	</pre>
+
+	<h3>Answer</h3>
+
+	<pre class="answer">
+		document.querySelector('h1').textContent.length
+	</pre>
+
+
+<br/><br/>
+	<h2>ADVANCED #1</h2>
+	<p>Write a piece of JavaScript code that when executed in the JavaScript console this page <a href="https://www.simoahava.com/analytics/element-visibility-trigger-google-tag-manager/">https://www.simoahava.com/analytics/element-visibility-trigger-google-tag-manager/</a>,
+	it finds all the outbound links in the content (SEE BELOW), and
+	dynamically adds the attribute data-gtm-link="outbound" to these elements. "Outbound link" here means any link element whose href does not contain the string " simoahava.com ".</p>
+	<pre>
+		&lt;div class="entry-content">
+	</pre>
+
+	<h3>Answer</h3>
+
+	<pre class="answer">
+		document.querySelectorAll('a').forEach(link => {
+			if (link.host != "www.simoahava.com") {
+				link.setAttribute("data-gtm-link", "outbound");
+			}
+		})
+	</pre>
+
+	<br/>
+	<a href="https://www.simoahava.com">This is an inbound link</a><br/>
+	<a href="hhttps://www.simoahava.com">This is another inbound link</a><br/>
+	<a href="https://www.google.com">This is an outbound link</a><br/>
+	<a href="https://www.cbc.ca">This is another outbound link</a><br/>
+	<a href="https://www.nationalpost.com">This is yet another outbound link</a>
+
+
+
+<br/><br/>
+	<h2>ADVANCED #2</h2>
+
+<p>Write a custom event listener in a Custom HTML Tag with the following specifications: On the page <a href="https://www.simoahava.com/analytics/">https://www.simoahava.com/analytics/element-visibility-trigger-google-tag-manager/</a>, when the
+user moves the mouse cursor over any header (&lt;h1> and &lt;h2>), reverse all the letters of the title (so "This is a title" becomes "eltit a si sihT". When the user moves the mouse cursor off the title, bring the letters back to their original order.</p>
+
+	<pre class="answer">
+		let allHeaders = document.querySelectorAll('h1');
+		let allSubTitles = document.querySelectorAll('h2');
+
+		allHeaders.forEach(header => { header.addEventListener('mouseover', reverseText) });
+		allHeaders.forEach(header => { header.addEventListener('mouseout', reverseText) });
+		allSubTitles.forEach(subTitle => { subTitle.addEventListener('mouseover', reverseText) });
+		allSubTitles.forEach(subTitle => { subTitle.addEventListener('mouseout', reverseText) });
+
+		function reverseText(x) {
+			let text = x.target.textContent;
+			let textModified = text.split("").reverse().join("");
+			x.target.textContent = textModified;
+			reversed = true;
+			//console.log('textModified', textModified);
+		}		
+	</pre>
+
+
+
+
+
+
+
+	<script>
+
+		// ADVANCED #1
+		document.querySelectorAll('a').forEach(link => {
+			if (link.host != "www.simoahava.com") {
+				link.setAttribute("data-gtm-link", "outbound link");
+			}
+		})
+
+
+		// ADVANCED #2
+		let allHeaders = document.querySelectorAll('h1');
+		let allSubTitles = document.querySelectorAll('h2');
+
+		allHeaders.forEach(header => { header.addEventListener('mouseover', reverseText) });
+		allHeaders.forEach(header => { header.addEventListener('mouseout', reverseText) });
+		allSubTitles.forEach(subTitle => { subTitle.addEventListener('mouseover', reverseText) });
+		allSubTitles.forEach(subTitle => { subTitle.addEventListener('mouseout', reverseText) });
+
+		function reverseText(x) {
+			let text = x.target.textContent;
+			let textModified = text.split("").reverse().join("");
+			x.target.textContent = textModified;
+			reversed = true;
+			//console.log('textModified', textModified);
+		}
+
+	</script>
+
 	</body>
 	</html>

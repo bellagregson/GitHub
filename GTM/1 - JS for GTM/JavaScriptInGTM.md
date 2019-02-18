@@ -60,14 +60,108 @@ getData({name: "John"}).then(function(data) {
 
 The container snippet, Simo Ahava
 https://www.simoahava.com/analytics/container-snippet-gtm-secrets-revealed/
-gtm.start
-gtm.js = page view trigger
+
+gtm.start and gtm.js
+
+```
+w[l].push({
+    'gtm.start': new Date().getTime(),
+    event: 'gtm.js'
+});
+```
+* Within the curly brackets is an object literal. Object literals are JavaScript objects, which contain any number of key-value (or property-value or variable-value) pairs, often in JSON (JavaScript Object Notation). 
+* With a dataLayer.push(), you’re pushing an object with properties to the end of the dataLayer queue. These properties can then be accessed in GTM.
+* This first push, contains an object with the following properties:
+	* Key 1: ‘gtm.start’ - Value 1: New Date.getTime()
+	* Key 2: event - Value 2: ‘gtm.js’
+* The gtm.start property receives the current time (in milliseconds since Jan 1, 1970) as its value. Brian Kuhn of Google explained that this is used for calculating gtm.js load time and the cache hit rate of the request, so don’t worry about it
 
  
+## Anonymous functions
 
-use anonymouse functions with a 'return' statemet
-google_tag_manager global object
-resolving a variable is an 'expensive' operation - it uses eval method
+Anonymous functions are functions that are dynamically declared at runtime. They’re called anonymous functions because they aren’t given a name in the same way as normal functions.
+
+Anonymous functions are declared using the function operator instead of the function declaration. You can use the function operator to create a new function wherever it’s valid to put an expression. For example you could declare a new function as a parameter to a function call or to assign a property of another object.
+
+If the function keyword appears first in the statement and is followed by a function name, the function is being created by a **function declaration**:
+```
+function flyToTheMoon()
+{
+  alert("Zoom! Zoom! Zoom!");
+}
+flyToTheMoon();
+```
+
+If the function keyword appears anywhere else, it is probably being used as a **function operator**. Here’s the same example created as an anonymous function.
+```
+var flyToTheMoon = function() {
+  alert("Zoom! Zoom! Zoom!");
+}
+flyToTheMoon();
+```
+
+When the function operator is called, it creates a new function object and returns it. 
+
+The function operator is a lot more flexible than a function declaration because it can be used wherever it is valid to use an expression.
+
+You can use the function operator to declare a function when you are creating an object:
+
+```
+var jabbaTheHut = {
+ laugh : function() { alert("ho ho ho ho"); }
+}
+jabbaTheHut.laugh();
+```
+
+When you are creating a list:
+```
+var toDoToday = [
+ function() { alert("Aren't you a little short for a storm trooper?") },
+ function() { alert("Boring conversation anyway") },
+];
+for(var x=0; x<toDoToday.length; x++) {
+ toDoToday[x]();
+}
+```
+
+
+### Google_tag_manager global object
+
+When GTM loads, a global object is created named google_tag_manager, that has a key that is the current GTM Id value.
+```
+google_tag_manager["GTM-XXXX"]
+```
+With it we can get a dataLayer value using dataLayer.get(‘value’)
+```
+google_tag_manager["GTM-XXXX"].dataLayer.get('event')
+```
+This will return the current value for the ‘event’ key, at the time we execute it. As all sites have a different GTM Id string, we could use it this way to it works on any site, as the Id will be grabbed dynamically:
+```
+google_tag_manager[(Object.keys(google_tag_manager)[1])].dataLayer.get('event')
+```
+
+
+### Using console.table for a fancy view of your objects
+Most common use of the “console” command is to print values into your console tab, but we can do some other nice things, like easily printing a full object in a table using the “console.table” command.
+
+For example for printing the whole dataLayer into a fancy table like this:
+
+console.table(dataLayer);
+
+
+### Race conditions
+	
+A race condition is where the timing of one event is critically tied to other events which need to happen before it in sequence. 
+
+Javascript as a language is single threaded. Essentially JS is just an API working with text,arrays, dates but does not include I/O (networking and storage) typically implemented by host environment.(mostly browsers). So this is where async nature arises from the network requests and storing data. Hence race conditions can arise from doing async operations on which finishes first.
+
+https://quickleft.com/blog/defusing-race-conditions-when-using-promises/
+
+
+
+
+## Other notes:
+
 in datalayer variable, array indices are accessed with dot notation
 
 can access properties and methods from GTM variables
@@ -81,6 +175,8 @@ learn how to use CSS selectors
 Simo Ahava - Matches CSS Selector operator article
 
 respect the RACE condition;
+
+
  'window loaded' trigger type doesn't fire until all dependencies have loaded
 
 
